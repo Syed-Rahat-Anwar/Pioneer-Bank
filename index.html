@@ -89,7 +89,7 @@
                 
 
 
-
+<!--javascript start-->
 
 <script>
     //login section
@@ -158,19 +158,19 @@ document.getElementById("deposit-area").value= "";
 
   const withdrawArea= document.getElementById("withdraw-amount").innerText;
 
-  const withdrawAreaNumber= parseFloat(withdrawArea);
+  const withdrawAreaNumber = parseFloat(withdrawArea);
 
 
   const currentWithdraw =  withdrawResult + withdrawAreaNumber;
 
-   document.getElementById("withdraw-amount").innerText= currentwithdraw;
+   document.getElementById("withdraw-amount").innerText= currentWithdraw;
 
 
  const balanceArea= document.getElementById("balance-area").innerText;
 const balanceAreaNumber= parseFloat(balanceArea);
 
 
- const remainingWithraw= balanceAreaNumber - withdrawAreaNumber;
+ const remainingWithraw= balanceAreaNumber - withdrawResult;
  document.getElementById("balance-area").innerText= remainingWithraw; 
 
 
