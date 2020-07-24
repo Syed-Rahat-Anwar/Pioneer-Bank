@@ -8,19 +8,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!--custom css link-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
 </head>
 <body>
     <div id="login-area" class="Login container mt-5">
-        <h1>Welcome To Pioneer Bank </h1>
+         <div class="row">
+                 
+                <div class="col-sm-12">
+                     <h1>Welcome To Pioneer Bank </h1>
 
-        <div class="submit-area">
-            <h4>Login</h4>
-             <input type="email"  placeholder="Email" class="form-control mt-4">
-            <input type="password"  placeholder="password" class="form-control mt-4">
-            <button id="btn" class="btn btn-success mt-4">Enter</button>
-
-        </div>
-
+                   <div class="submit-area">
+                    <h4>Login</h4>
+                        <input type="email"  placeholder="Email" class="form-control mt-4">
+                        <input type="password"  placeholder="password" class="form-control mt-4">
+                        <button id="btn" class="btn btn-success mt-4">Enter</button>
+            
+                  </div>
+             </div>
+         </div>
     </div>
 
 
@@ -37,14 +42,14 @@
                 <div class="col-md-4">
                     <div id="withdraw" class="status">
                         <h4>Withdraw</h4>
-                        <h2>$00</h2>
+                        <h2>$<span id="withdraw-amount">00</span></h2>
         
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div id="balance" class="status">
                         <h4>balance</h4>
-                        <h2>$1240</h2>
+                        <h2>$ <span id="balance-area">1240</span></h2>
         
                     </div>
                 </div>
@@ -102,7 +107,7 @@
     transactionArea.style.display='block';
 
   })
-//transaction section
+// deposit  section
 
 const depositArea= document.getElementById("depositButton");
 depositArea.addEventListener("click" , function(){
@@ -120,11 +125,61 @@ const total= depositResult + currentNumber;
 
 document.getElementById("deposit-number").innerText= total;
 
+//adding two value at the same time
+
+
+ 
+ 
+
+const balanceArea= document.getElementById("balance-area").innerText;
+const balanceAreaNumber= parseFloat(balanceArea);
+const currentBalance= depositResult + balanceAreaNumber;
+
+document.getElementById("balance-area").innerText= currentBalance;
 
 
 
+document.getElementById("deposit-area").value= "";
 
 })
+
+
+//withdraw section 
+
+ 
+
+  const withdrawBtn = document.getElementById("withdrawButton");
+  
+   withdrawBtn.addEventListener("click", function(){
+
+ const addWithdraw = document.getElementById("withdraw-area").value;
+
+  const withdrawResult =parseFloat(addWithdraw);
+
+  const withdrawArea= document.getElementById("withdraw-amount").innerText;
+
+  const withdrawAreaNumber= parseFloat(withdrawArea);
+
+
+  const currentWithdraw =  withdrawResult + withdrawAreaNumber;
+
+   document.getElementById("withdraw-amount").innerText= currentwithdraw;
+
+
+ const balanceArea= document.getElementById("balance-area").innerText;
+const balanceAreaNumber= parseFloat(balanceArea);
+
+
+ const remainingWithraw= balanceAreaNumber - withdrawAreaNumber;
+ document.getElementById("balance-area").innerText= remainingWithraw; 
+
+
+ 
+
+  document.getElementById("withdraw-area").value="";
+
+})
+
 
 
 
